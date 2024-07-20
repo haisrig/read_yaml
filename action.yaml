@@ -1,0 +1,26 @@
+name: Read Yaml File
+description: Reads github branch configuration yaml file using javascript.
+inputs:
+  branch_name:
+    description: Name of the branch.
+    default: main
+  file_name:
+    description: Name of the config file. If not specified it will check for "config.yaml" file by default.
+
+outputs:
+  build_type:
+    description: 'Type of the build'
+  static_code_analysis:
+    description: 'Static code analysis type like lint or sonar.'
+  build:
+    description: 'true if build action needs to be performed.'
+  unit_test:
+    description: 'true if unit test action needs to be performed.'
+  code_analysis:
+    description: 'true if static code analysis action needs to be performed.'
+  store_artifact:
+    description: 'true if build artifacts need to be stored.'
+
+runs:
+  using: node20
+  main: index.js
